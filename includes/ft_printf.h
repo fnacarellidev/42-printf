@@ -6,7 +6,7 @@
 /*   By: fnacarel <fnacarel@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 03:07:53 by fnacarel          #+#    #+#             */
-/*   Updated: 2022/09/28 10:13:25 by fnacarel         ###   ########.fr       */
+/*   Updated: 2022/09/28 15:48:43 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,7 @@
 size_t	ft_strlen(char *str);
 int		has_repeated_chars(char *str);
 void	ft_putnbr_base(long long nbr, char *base);
+void	ft_puthex(long long x, char uppercase);
+void	ft_putstr(char *str);
 
 #endif
