@@ -6,7 +6,7 @@
 /*   By: fnacarel <fnacarel@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 02:58:14 by fnacarel          #+#    #+#             */
-/*   Updated: 2022/09/28 15:33:57 by fnacarel         ###   ########.fr       */
+/*   Updated: 2022/10/04 16:27:37 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../includes/ft_printf.h"
@@ -52,57 +52,42 @@ int		has_repeated_chars(char *str)
 	return (0);
 }
 
-void	ft_putnbr_base(long long nbr, char *base)
+int		ft_putnbr_base(long long nbr, char *base)
 {
-	size_t	len_base;
+	int	len_base;
+	int	chars_printed;
 
+	chars_printed = 0;
 	len_base = ft_strlen(base);
 	if (has_repeated_chars(base))
-		return ;
+		return (0);
 	if (nbr < 0)
 	{
 		nbr *= -1;
-		write(1, "-", 1);
+		chars_printed += ft_putchar('-');
 	}
 	if (nbr < len_base)
-		write(1, &base[nbr % len_base], 1);
+		chars_printed += ft_putchar(base[nbr]);
 	else
 	{
-		ft_putnbr_base(nbr / len_base, base);
-		ft_putnbr_base(nbr % len_base, base);
+		chars_printed += ft_putnbr_base(nbr / len_base, base);
+		chars_printed += ft_putnbr_base(nbr % len_base, base);
 	}
+	return (chars_printed);
 }
 
-void	ft_puthex(long long x, char uppercase)
+int		ft_putstr(char *str)
 {
-	char	*base;
+	int	chars_printed;
 
-	if (uppercase == 'X')
-		base = "0123456789ABCDEF";
-	else
-		base = "0123456789abcdef";
-	if (x < 0)
-	{
-		x *= -1;
-		write(1, "-", 1);
-	}
-	if (x < 16)
-		write(1, &base[x % 16], 1);
-	else
-	{
-		ft_putnbr_base(x / 16, base);
-		ft_putnbr_base(x % 16, base);
-	}
-}
-
-void	ft_putstr(char *str)
-{
+	chars_printed = 0;
 	if (str)
 	{
-		while (*str)
+		while (str[chars_printed])
 		{
-			write(1, str, 1);
-			str++;
+			write(1, &str[chars_printed], 1);
+			chars_printed++;
 		}
 	}
+	return (chars_printed);
 }
