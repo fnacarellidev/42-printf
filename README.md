@@ -11,7 +11,7 @@ Clone this repo and cd into it
 git clone https://github.com/fnacarellidev/42-printf.git
 cd 42-printf
 ```
-You can compile the library my running the ```make``` command
+You can compile the library by running the ```make``` command
 
 ## Conversions supported by this project
 - ***%c***
