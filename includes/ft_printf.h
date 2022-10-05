@@ -6,7 +6,7 @@
 /*   By: fnacarel <fnacarel@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 03:07:53 by fnacarel          #+#    #+#             */
-/*   Updated: 2022/10/05 18:32:22 by fnacarel         ###   ########.fr       */
+/*   Updated: 2022/10/05 18:37:58 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ size_t	ft_strlen(char *str);
 int		ft_putnbr_base(long long nbr, char *base);
 int		ft_putstr(char *str);
 int		ft_putchar(char c);
-int		ft_puthex(unsigned long long nbr, char *base);
+int		ft_puthex(unsigned long long nbr, int use_uppercase);
 int		ft_percent_handler(char c, va_list ptr);
 int		ft_put_address(unsigned long long nbr);
 int		ft_printf(const char *str, ...);
