@@ -6,7 +6,7 @@
 /*   By: fnacarel <fnacarel@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 02:58:14 by fnacarel          #+#    #+#             */
-/*   Updated: 2022/10/05 18:38:36 by fnacarel         ###   ########.fr       */
+/*   Updated: 2022/10/05 19:31:03 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../includes/ft_printf.h"
@@ -27,7 +27,7 @@ size_t	ft_strlen(char *str)
 	return (count);
 }
 
-int		ft_put_address(unsigned long long nbr)
+int	ft_put_address(unsigned long long nbr)
 {
 	int	chars_printed;
 
@@ -42,16 +42,16 @@ int		ft_put_address(unsigned long long nbr)
 	return (chars_printed);
 }
 
-int		ft_puthex(unsigned long long nbr, int use_uppercase)
+int	ft_puthex(unsigned long long nbr, int use_uppercase)
 {
 	int		chars_printed;
 	char	*base;
 
 	chars_printed = 0;
 	if (use_uppercase)
-		base = HEX_DIGITS_UPPERCASE;
+		base = HEX_UPCASE;
 	else
-		base = HEX_DIGITS_LOWCASE;
+		base = HEX_LOWCASE;
 	if (nbr < 16)
 		chars_printed += ft_putchar(base[nbr]);
 	else
@@ -62,7 +62,7 @@ int		ft_puthex(unsigned long long nbr, int use_uppercase)
 	return (chars_printed);
 }
 
-int		ft_putnbr_base(long long nbr, char *base)
+int	ft_putnbr_base(long long nbr, char *base)
 {
 	int	len_base;
 	int	chars_printed;
@@ -84,7 +84,7 @@ int		ft_putnbr_base(long long nbr, char *base)
 	return (chars_printed);
 }
 
-int		ft_putstr(char *str)
+int	ft_putstr(char *str)
 {
 	int	chars_printed;
 
