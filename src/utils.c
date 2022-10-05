@@ -6,7 +6,7 @@
 /*   By: fnacarel <fnacarel@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 02:58:14 by fnacarel          #+#    #+#             */
-/*   Updated: 2022/10/05 17:12:52 by fnacarel         ###   ########.fr       */
+/*   Updated: 2022/10/05 18:32:56 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../includes/ft_printf.h"
@@ -38,33 +38,25 @@ int		ft_put_address(unsigned long long nbr)
 		return (chars_printed);
 	}
 	chars_printed += ft_putstr("0x");
-	chars_printed += ft_putnbr_base(nbr, HEX_DIGITS_LOWCASE);
+	chars_printed += ft_puthex(nbr, HEX_DIGITS_LOWCASE);
 	return (chars_printed);
 }
 
-int		has_repeated_chars(char *str)
+int		ft_puthex(unsigned long long nbr, char *base)
 {
-	size_t	len_str;
-	size_t	i;
-	size_t	j;
+	int	len_base;
+	int	chars_printed;
 
-	i = 0;
-	len_str = ft_strlen(str);
-	if (str && len_str)
+	chars_printed = 0;
+	len_base = ft_strlen(base);
+	if (nbr < len_base)
+		chars_printed += ft_putchar(base[nbr]);
+	else
 	{
-		while (i < len_str)
-		{
-			j = (i + 1);
-			while (j < len_str)
-			{
-				if (str[i] == str[j])
-					return (1);
-				j++;
-			}
-			i++;
-		}
+		chars_printed += ft_putnbr_base(nbr / len_base, base);
+		chars_printed += ft_putnbr_base(nbr % len_base, base);
 	}
-	return (0);
+	return (chars_printed);
 }
 
 int		ft_putnbr_base(long long nbr, char *base)
@@ -74,8 +66,6 @@ int		ft_putnbr_base(long long nbr, char *base)
 
 	chars_printed = 0;
 	len_base = ft_strlen(base);
-	if (has_repeated_chars(base))
-		return (0);
 	if (nbr < 0)
 	{
 		nbr *= -1;
