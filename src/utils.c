@@ -6,7 +6,7 @@
 /*   By: fnacarel <fnacarel@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 02:58:14 by fnacarel          #+#    #+#             */
-/*   Updated: 2022/10/04 17:26:02 by fnacarel         ###   ########.fr       */
+/*   Updated: 2022/10/05 17:12:52 by fnacarel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../includes/ft_printf.h"
@@ -27,7 +27,7 @@ size_t	ft_strlen(char *str)
 	return (count);
 }
 
-int		ft_put_address(unsigned long int nbr)
+int		ft_put_address(unsigned long long nbr)
 {
 	int	chars_printed;
 
@@ -104,5 +104,7 @@ int		ft_putstr(char *str)
 			chars_printed++;
 		}
 	}
+	else
+		chars_printed += ft_putstr("(null)");
 	return (chars_printed);
 }
