@@ -8,7 +8,7 @@ $(NAME) : $(OBJS)
 	ar rcs $(NAME) $(OBJS)
 
 $(OBJS) : $(SRC)
-	gcc -c $(SRC)
+	cc -c $(SRC)
 
 clean :
 	rm -f $(OBJS)
