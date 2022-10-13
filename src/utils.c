@@ -34,7 +34,7 @@ int	ft_put_address(unsigned long long nbr)
 	chars_printed = 0;
 	if (!nbr)
 	{
-		chars_printed += ft_putstr("(nil)");
+		chars_printed += ft_putstr(NULLABLE);
 		return (chars_printed);
 	}
 	chars_printed += ft_putstr("0x");
