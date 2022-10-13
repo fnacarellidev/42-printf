@@ -11,6 +11,7 @@ $(NAME) : $(OBJS)
 	ar rcs $(NAME) $(OBJS)
 
 $(OBJS) : $(SRC)
+<<<<<<< HEAD
 	$(CFLAGS) -c $(SRC)
 
 bonus : $(BONUS_OBJS)
@@ -18,6 +19,9 @@ bonus : $(BONUS_OBJS)
 
 $(BONUS_OBJS) : $(BONUS_SRC)
 	$(CFLAGS) -I includes/ -c $(BONUS_SRC)
+=======
+	cc -c $(SRC)
+>>>>>>> 3211eb68842b87f274c11c8c00600a9f52c621a2
 
 clean :
 	rm -f $(OBJS) $(BONUS_OBJS)
