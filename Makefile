@@ -9,7 +9,7 @@ $(NAME) : $(OBJS)
 	ar rcs $(NAME) $(OBJS)
 
 $(OBJS) : $(SRC)
-	$(CFLAGS) -c $(SRC)
+	$(CFLAGS) -I includes/ -c $(SRC)
 
 clean :
 	rm -f $(OBJS)
